@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="font_opensans_italic">OpenSans-Italic</string>
+    <string name="font_opensans_light">OpenSans-Light</string>
+    <string name="font_opensans_regular">OpenSans-Regular</string>
+    <string name="font_opensans_semibold">OpenSans-Semibold</string>
+    <string name="font_opensans_semibold_italic">OpenSans-SemiboldItalic</string>
+    <string name="font_thonburi_bold">Thonburi-Bold</string>
+    <string name="font_thonburi_light">OpenSans-Light</string>
+    <string name="font_roboto_light">Roboto-Light</string>
+    <string name="font_lato_light">Lato-Light</string>
+    <string name="font_lato_regular">Lato-Regular</string>
+</resources>

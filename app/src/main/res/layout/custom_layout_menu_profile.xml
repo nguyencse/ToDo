@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnlMenuProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_smiling_baby" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <com.nguyencse.todo.custom.TextViewCSE
+                android:id="@+id/txt_profile_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+
+            <com.nguyencse.todo.custom.TextViewCSE
+                android:id="@+id/txt_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40sp" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_profile_update"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_button_white_clickable"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:paddingEnd="10dp"
+        android:paddingStart="15dp"
+        android:text="@string/update_your_profile"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <com.nguyencse.todo.custom.EditTextCSE
+        android:id="@+id/edt_profile_update_username"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext"
+        android:cursorVisible="false"
+        android:gravity="center"
+        android:hint="@string/username_none_caps"
+        android:maxLines="1"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorGrayDark"
+        android:visibility="gone" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_profile_update_username"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_white_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/update"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_orange_dark"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/developed_by_nguyencse"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>

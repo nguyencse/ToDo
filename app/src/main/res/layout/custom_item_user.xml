@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnl_item_user"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_button_white_clickable"
+    android:clickable="true"
+    android:gravity="center_vertical"
+    android:minHeight="50dp"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="2dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_item_user_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/ic_smiling_baby" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.nguyencse.todo.custom.TextViewCSE
+            android:id="@+id/txt_item_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="Quý Ngọc Nguyễn"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <com.nguyencse.todo.custom.TextViewCSE
+            android:id="@+id/txt_item_user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="nguyenict.uit@gmail.com"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_item_user_options"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_button_transparent_clickable"
+        android:src="@drawable/ic_more_blue" />
+</LinearLayout>

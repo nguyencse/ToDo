@@ -1,0 +1,32 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorGrayDark</item>
+
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="alertDialogTheme">@style/CustomAlertDialog</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+    </style>
+
+    <declare-styleable name="TextViewCSE">
+        <attr name="cse_typeface_textview" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ButtonCSE">
+        <attr name="cse_typeface_button" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckBoxCSE">
+        <attr name="cse_tyface_checkbox" format="string" />
+    </declare-styleable>
+</resources>

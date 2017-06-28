@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_user_add_friend"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_underline_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/add_friend"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_user_unfriend"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_underline_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/unfriend"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_user_message"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_white_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/message"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_task_edit"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_underline_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/edit"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_orange_dark" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_task_delete"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_underline_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/delete"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <com.nguyencse.todo.custom.TextViewCSE
+        android:id="@+id/txt_item_modal_task_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_button_white_clickable"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_chatting_paired_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_button_transparent_clickable"
+            android:src="@drawable/ic_left_arrow" />
+
+        <com.nguyencse.todo.custom.TextViewCSE
+            android:id="@+id/txt_chatting_paired_screen_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary" />
+
+        <ImageButton
+            android:id="@+id/btn_chatting_paired_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_button_transparent_clickable"
+            android:src="@drawable/ic_logout" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/message_list_private"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:clipToPadding="false"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="65dp"
+            android:transcriptMode="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                android:orientation="vertical">
+
+                <com.nguyencse.todo.custom.EditTextCSE
+                    android:id="@+id/edt_message_body_private"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_rect"
+                    android:elevation="8dp"
+                    android:hint="@string/add_new_message_here"
+                    android:inputType="text|textNoSuggestions"
+                    android:maxLines="1"
+                    android:padding="15dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+            </android.support.v7.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/btn_send_private"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/bg_button_white_clickable"
+                android:padding="15dp"
+                android:src="@drawable/ic_double_right_arrow" />
+
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

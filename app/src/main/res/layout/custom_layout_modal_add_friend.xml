@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_smiling_baby" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.nguyencse.todo.custom.TextViewCSE
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/add_friend_with_this_user"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.nguyencse.todo.custom.ButtonCSE
+                android:id="@+id/btn_item_modal_add_friend_yes"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_button_transparent_clickable"
+                android:text="@string/yes"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <com.nguyencse.todo.custom.ButtonCSE
+                android:id="@+id/btn_item_modal_add_friend_no"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_button_transparent_clickable"
+                android:text="@string/no"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
