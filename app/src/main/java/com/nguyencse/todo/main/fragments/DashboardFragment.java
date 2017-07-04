@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
+import com.nguyencse.todo.custom.ProgressDialogCSE;
 import com.nguyencse.todo.custom.TextViewCSE;
 import com.nguyencse.todo.objects.Task;
 import com.nguyencse.todo.main.MainActivity;
@@ -49,6 +50,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private TextViewCSE txtNumberOfTasks;
     private LinearLayout lnlNoTask;
     private Dialog dialogTasksToday;
+    private ProgressDialogCSE progressDialogCSE;
 
     private List<Task> taskList;
     private TaskAdapter adapterTaskList;
@@ -68,6 +70,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         dialogTasksToday.setContentView(R.layout.custom_layout_modal_event_on_date_selected);
 
         database = FirebaseDatabase.getInstance().getReference();
+        progressDialogCSE = new ProgressDialogCSE(getContext(), R.style.CircleLoading);
 
         allTaskList = new ArrayList<>();
         adapterAllTask = new TaskAdapter(getContext(), allTaskList);
@@ -100,7 +103,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             public void onDayClick(Date dateClicked) {
 
                 // TODO: Get tasks on date and put on TaskAdapter
-
                 taskList.clear();
                 List<Task> taskListOnDateSelected = getAllTaskOnDate(dateClicked);
                 for (Task task : taskListOnDateSelected) {
@@ -147,9 +149,14 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     private void getAllTasksToDo() {
+        progressDialogCSE.show();
+
         database.child("tasks").child(MainActivity.user.getUid()).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if (progressDialogCSE.isShowing()) {
+                    progressDialogCSE.dismiss();
+                }
                 Task task = dataSnapshot.getValue(Task.class);
                 allTaskList.add(task);
                 adapterAllTask.notifyDataSetChanged();
@@ -231,8 +238,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private void refreshCalender() {
         compactCalendarView.removeAllEvents();
 
-//        List<Task> taskList = MainActivity.dbTodo.getAllTasks();
-
+        //  List<Task> taskList = MainActivity.dbTodo.getAllTasks();
         int n = allTaskList.size();
         for (int i = 0; i < n; i++) {
             Task task = allTaskList.get(i);

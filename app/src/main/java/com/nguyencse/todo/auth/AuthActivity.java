@@ -1,5 +1,6 @@
 package com.nguyencse.todo.auth;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,15 +17,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nguyencse.todo.custom.EditTextCSE;
+import com.nguyencse.todo.custom.ProgressDialogCSE;
 import com.nguyencse.todo.main.MainActivity;
 import com.nguyencse.todo.R;
 import com.nguyencse.todo.objects.User;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "AUTHEN";
     private EditTextCSE edtEmail, edtPass;
     private Button btnLogin, btnSignup;
+    private ProgressDialogCSE progressDialogCSE;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -40,14 +42,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    // User is signed in
-//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     goToMain();
-                } else {
-                    // User is signed out
-//                    Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // ...
             }
         };
 
@@ -57,6 +53,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnSignup = (Button) findViewById(R.id.btn_signup);
 
+        progressDialogCSE = new ProgressDialogCSE(this, R.style.CircleLoading);
+
         btnLogin.setOnClickListener(this);
         btnSignup.setOnClickListener(this);
     }
@@ -65,6 +63,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
 
+        progressDialogCSE.show();
         switch (id) {
             case R.id.btn_login:
                 login();
@@ -90,6 +89,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialogCSE.dismiss();
                             if (!task.isSuccessful()) {
                                 Toast.makeText(AuthActivity.this, R.string.login_failed, Toast.LENGTH_SHORT).show();
                             } else {
@@ -109,6 +109,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialogCSE.dismiss();
                             if (!task.isSuccessful()) {
                                 Toast.makeText(AuthActivity.this, R.string.signup_failed, Toast.LENGTH_SHORT).show();
                             } else {

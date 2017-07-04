@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nguyencse.todo.adapter.MessageAdapter;
 import com.nguyencse.todo.custom.EditTextCSE;
+import com.nguyencse.todo.custom.ProgressDialogCSE;
 import com.nguyencse.todo.main.MainActivity;
 import com.nguyencse.todo.objects.Message;
 import com.nguyencse.todo.R;
@@ -40,6 +42,7 @@ public class ChattingFragment extends Fragment {
     private List<Message> messageList;
     private EditTextCSE edtMessageBody;
     private ImageButton btnSend;
+    private ProgressDialogCSE progressDialogCSE;
 
     private DatabaseReference database;
 
@@ -55,6 +58,8 @@ public class ChattingFragment extends Fragment {
         edtMessageBody = (EditTextCSE) view.findViewById(R.id.edt_message_body);
         rcvMessage = (RecyclerView) view.findViewById(R.id.message_list);
         btnSend = (ImageButton) view.findViewById(R.id.btn_send);
+
+        progressDialogCSE = new ProgressDialogCSE(getContext(), R.style.CircleLoading);
 
         messageList = new ArrayList<>();
         messageAdapter = new MessageAdapter(getContext(), messageList);
@@ -77,9 +82,15 @@ public class ChattingFragment extends Fragment {
     }
 
     private void getAllMessages() {
+        progressDialogCSE.show();
+
         database.child("chatting").child("global").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if (progressDialogCSE.isShowing()) {
+                    progressDialogCSE.dismiss();
+                }
+
                 Message message = dataSnapshot.getValue(Message.class);
                 messageList.add(message);
                 messageAdapter.notifyDataSetChanged();

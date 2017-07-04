@@ -24,7 +24,7 @@
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.nguyencse.todo.chatting.PairedRoomActivity"></activity>
+        <activity android:name=".chatting.PairedRoomActivity" />
     </application>
 
 </manifest>
